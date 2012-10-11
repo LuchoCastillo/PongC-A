@@ -1,1 +1,1 @@
-.. autodoc:: pong.py
+.. automodule:: pong.py
