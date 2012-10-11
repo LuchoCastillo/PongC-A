@@ -1,1 +1,2 @@
 .. automodule:: pong.py
+  :members:
