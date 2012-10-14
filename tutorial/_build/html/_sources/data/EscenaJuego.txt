@@ -225,6 +225,7 @@ La parte de colisiones aun no está desarrollada, este tutorial será actualizad
 
 .. note:: Recuerden que los puntajes deben cambiar su valor a medida que tocan los laterales; así como también, que deben crear una colisión para que la bomba rebote en las dos barras.
 
-Acá se encuentra el código del "Pong" hasta ahora, junto con las imágenes usadas y el archivo "actores.py".
+`Acá <https://github.com/LuchoCastillo/PongC-A>`_ se encuentra el código del "Pong", junto con las imágenes usadas y este tutorial.
 
+Cualquier contribución será bien aceptada,
 ¡Suerte!
