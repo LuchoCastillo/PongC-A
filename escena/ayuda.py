@@ -5,15 +5,18 @@
 #
 
 import pilas
-from pilas.escenas import Escena
+from pilas.escena import Base
 
 
-class Ayuda(Escena):
+class Ayuda(Base):
     '''Representa a la escena que se desarrolla en la ayuda del juego. Además, informa sobre los controles del mismo.'''
 
     def __init__(self):
+        '''Llama al __init__ de la escena "Base".'''
+        Base.__init__(self)
+        
+    def iniciar(self):
         '''Genera todo el entorno de la escena (fondo, título, controles).'''
-        Escena.__init__(self)
         self.fondo = pilas.fondos.Fondo('escena/fondo/ayuda.png')
         self.crear_texto_ayuda()
         pilas.eventos.pulsa_tecla_escape.conectar(self.cuando_pulsa_tecla)
@@ -28,5 +31,4 @@ class Ayuda(Escena):
 
     def cuando_pulsa_tecla(self, *k, **kv):
         '''Se encarga de volver al menú inicial, al presionar <ESC>.'''
-        import menu
-        menu.Menu()
+        pilas.recuperar_escena()

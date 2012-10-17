@@ -5,16 +5,19 @@
 #
 
 import pilas
-from pilas.escenas import Escena
+from pilas.escena import Base
 from actor import *
 
 
-class Juego(Escena):
+class Juego(Base):
     '''Representa a la escena que se desarrolla en la ejecucion del juego.'''
 
     def __init__(self):
+        '''Llama al __init__ de la escena "Base".'''
+        Base.__init__(self)
+        
+    def iniciar(self):
         '''Genera el entorno de la escena (fondo, actores, colisiones, eventos).'''
-        Escena.__init__(self)
         self.crear_escenario()
         self.crear_colisiones()
         pilas.eventos.pulsa_tecla_escape.conectar(self.cuando_pulsa_tecla)
@@ -37,14 +40,14 @@ class Juego(Escena):
         '''Crea todas las colisiones del juego.'''
         def cuando_colisionan_1(pelota, jugador): # colision entre pelota y jugador 1
             pelota.x += 1
-            pelota.circulo.impulsar(pelota.dx * 50000, pelota.dy * 50000)
+            pelota.circulo.impulsar(pelota.dx * 5, pelota.dy * 5)
             
         def cuando_colisionan_2(pelota, jugador): # colision entre pelota y jugador 2
             pelota.x -= 1
-            pelota.circulo.impulsar(pelota.dx * -50000, pelota.dy * -50000)
+            pelota.circulo.impulsar(pelota.dx * -5, pelota.dy * -5)
             
-        pilas.mundo.colisiones.agregar(self.pelota, self.jugador1, cuando_colisionan_1)
-        pilas.mundo.colisiones.agregar(self.pelota, self.jugador2, cuando_colisionan_2)
+        pilas.escena_actual().colisiones.agregar(self.pelota, self.jugador1, cuando_colisionan_1)
+        pilas.escena_actual().colisiones.agregar(self.pelota, self.jugador2, cuando_colisionan_2)
         
     def toca_lateral(self, evento):
         '''Se encarga de los puntajes. Cuando la pelota llega a un lateral o al otro, suma los puntos correspondientes.'''
@@ -89,5 +92,4 @@ class Juego(Escena):
                     
     def cuando_pulsa_tecla(self, *k, **kv):
         '''Función ejecutada al pulsar <ESC>. Llama a la escena Menu().'''
-        import menu
-        menu.Menu()
+        pilas.recuperar_escena()

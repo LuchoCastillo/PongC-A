@@ -5,15 +5,18 @@
 #
 
 import pilas
-from pilas.escenas import Escena
+from pilas.escena import Base
 
 
-class Menu(Escena):
+class Menu(Base):
     '''Escena inicial donde se desarrolla el menú del juego.'''
 
     def __init__(self):
+        '''Llama al __init__ de la escena "Base".'''
+        Base.__init__(self)
+        
+    def iniciar(self):
         '''Genera el entorno de la escena (fondo, título, menú).'''
-        Escena.__init__(self)
         self.fondo = pilas.fondos.Fondo('escena/fondo/menu.png')
         self.generar_titulo()
         pilas.avisar('Use el teclado para cambiar o seleccionar opciones')
@@ -36,12 +39,12 @@ class Menu(Escena):
     def comenzar(self):
         '''Se ejecuta cuando se presiona "Empezar a jugar", llama a la clase Juego().'''
         import juego
-        juego.Juego()
+        pilas.almacenar_escena(juego.Juego())
 
     def ayuda(self):
         '''Se ejecuta cuando se presiona "Ver ayuda", llama a la clase Ayuda().'''
         import ayuda
-        ayuda.Ayuda()
+        pilas.almacenar_escena(ayuda.Ayuda())
 
     def salir(self):
         '''Se ejecuta cuando se presiona "Salir", cierra el programa.'''
