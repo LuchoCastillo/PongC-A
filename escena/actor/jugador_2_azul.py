@@ -32,7 +32,7 @@ class Jugador2(Actor):
         def pulsa_tecla(self, evento):
             '''Mueve al jugador según se haya pulsado o despulsado una tecla.'''
             velocidad = 5
-            c = pilas.mundo.control
+            c = pilas.escena_actual().control
 
             if c.arriba:
                 self.receptor.y += velocidad

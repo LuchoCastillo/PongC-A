@@ -26,5 +26,5 @@ class Pelota(Bomba):
         '''Esta función es la encargada de comenzar con el movimiento de la bomba al inicio del juego.'''
         self.dx = 1
         self.dy = 1
-        self.circulo.impulsar(self.dx * 50000, self.dy * 50000)
+        self.circulo.impulsar(self.dx * 5, self.dy * 5)
 
