@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 #
 # Tutorial Pong-C&A documentation build configuration file, created by
-# sphinx-quickstart on Wed Oct 10 23:18:07 2012.
+# sphinx-quickstart on Wed Oct 17 20:34:02 2012.
 #
 # This file is execfile()d with the current directory set to its containing dir.
 #
@@ -141,7 +141,7 @@ html_static_path = ['_static']
 #html_domain_indices = True
 
 # If false, no index is generated.
-html_use_index = False
+#html_use_index = True
 
 # If true, the index is split into individual pages for each letter.
 #html_split_index = False
