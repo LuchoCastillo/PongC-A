@@ -20,7 +20,7 @@ class Pong:
         
     def empezar(self):
         '''Ejecuta la clase "Menu".'''
-        escena.Menu()
+        pilas.cambiar_escena(escena.Menu())
         pilas.ejecutar()
         
 
